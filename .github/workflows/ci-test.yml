@@ -1,4 +1,4 @@
-name: ci-test.yml
+name: CI - Tests
 on:
   push:
     branches:

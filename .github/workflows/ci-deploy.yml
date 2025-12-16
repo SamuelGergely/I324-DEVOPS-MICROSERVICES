@@ -1,22 +1,28 @@
-name: ci-deploy.yml
+name: CI - Deploy
 on:
-  push:
+  workflow_run:
+    workflows: ["CI - Tests"]
     branches:
       - develop
       - main
+    types:
+      - completed
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
-    needs: test
     steps:
       - name: Checkout du code
         uses: actions/checkout@v4
 
       - name: Build image Docker (production)
         run: |
-          docker build -t ms-customers_latest .
+          docker build \
+          -t ms-customers_latest \
+          -f ms-customers/Dockerfile \
+          ms-customers
 
       - name: Verification de l'image
         run: |
