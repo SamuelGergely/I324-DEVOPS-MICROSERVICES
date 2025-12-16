@@ -7,9 +7,6 @@ on:
       - feature/*
       - release/*
       - hotfix/*
-    paths:
-      - "ms-customers/**"
-      - ".github/workflows/ci-ms-customers.yml"
 
   pull_request:
     branches:
@@ -18,8 +15,6 @@ on:
       - feature/*
       - release/*
       - hotfix/*
-    paths:
-      - "ms-customers/**"
 
 jobs:
   eslint:
