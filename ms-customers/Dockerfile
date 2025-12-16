@@ -19,6 +19,9 @@ COPY package*.json ./
 RUN npm install --omit=dev
 
 COPY . .
+
+VOLUME ["/data"]
+
 EXPOSE 3002
 
 # Start the application
