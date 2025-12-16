@@ -7,5 +7,6 @@ export default defineConfig({
     ...js.configs.recommended.rules,
     "no-unused-vars": "warn",
     "no-console": "off",
+    "no-undef": "warn",
   },
 });
