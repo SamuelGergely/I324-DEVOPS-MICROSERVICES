@@ -19,7 +19,11 @@ jobs:
 
       - name: Build image Docker (tests)
         run: |
-          docker build -t ms-customers-test --target test .
+          docker build \
+          --target test \
+          -t ms-customers-test \
+          -f ms-customers/Dockerfile \
+          ms-customers
 
       - name: Execution des tests
         run: |
