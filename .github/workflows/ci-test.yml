@@ -1,0 +1,26 @@
+name: ci-test.yml
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Build image Docker (tests)
+        run: |
+          docker build -t ms-customers-test --target test .
+
+      - name: Execution des tests
+        run: |
+          docker run --rm ms-customers-test
