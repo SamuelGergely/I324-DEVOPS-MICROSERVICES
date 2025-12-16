@@ -1,5 +1,6 @@
 {
   "name": "customers-api",
+  "type": "module",
   "version": "1.0.0",
   "description": "RESTful Customers API with sqlite3, express-validator, and swagger-ui",
   "main": "server.js",
