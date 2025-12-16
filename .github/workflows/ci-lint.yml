@@ -29,12 +29,17 @@ jobs:
         with:
           node-version: 22.18.0
           cache: 'npm'
+          cache-dependency-path: ms-customers/package-lock.json
 
       - name: Install stable npm
         run: npm install -g npm@9
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd ms-customers
+          npm install
 
       - name: Run ESLint
-        run: npm run lint
+        run: |
+          cd ms-customers
+          npm run lint
